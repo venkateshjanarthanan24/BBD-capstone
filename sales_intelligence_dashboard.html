@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sales Intelligence | Business Dashboard</title>
+<style>
+:root{--bg:#0a1020;--panel:#111b30;--panel2:#17233c;--line:#263653;--text:#eef4ff;--muted:#91a2c2;--blue:#38bdf8;--cyan:#22d3ee;--green:#34d399;--orange:#fb923c;--purple:#a78bfa;--red:#fb7185}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}button,select,input{font:inherit}.layout{display:grid;grid-template-columns:232px minmax(0,1fr);min-height:100vh}.sidebar{background:linear-gradient(180deg,#17143a,#111a35 58%,#102c4c);border-right:1px solid #273451;padding:24px 15px;display:flex;flex-direction:column;gap:25px}.brand{display:flex;align-items:center;gap:11px;padding:0 9px 20px;border-bottom:1px solid #ffffff18}.brandmark{width:38px;height:38px;border-radius:13px;background:linear-gradient(135deg,#8b5cf6,#2563eb);display:grid;place-items:center;font-size:20px;font-weight:900}.brand strong{display:block;font-size:14px;letter-spacing:.02em}.brand small{display:block;color:#a5b4d3;font-size:11px;margin-top:3px}.nav-label{font-size:10px;color:#8191b4;font-weight:800;letter-spacing:.16em;padding:0 12px}.nav{display:grid;gap:6px}.nav button{display:flex;align-items:center;gap:12px;text-align:left;border:1px solid transparent;background:transparent;color:#b9c6df;padding:12px;border-radius:11px;cursor:pointer}.nav button .ico{width:20px;text-align:center;font-size:16px}.nav button.active{background:linear-gradient(90deg,#7c3aed55,#3b82f633);border-color:#8b5cf655;color:#fff;box-shadow:inset 3px 0 #a78bfa}.nav button:hover{background:#ffffff0d}.side-foot{margin-top:auto;background:#ffffff0a;border:1px solid #ffffff13;border-radius:14px;padding:14px;color:#b7c5df;font-size:11px;line-height:1.6}.side-foot b{color:#fff;display:block;margin-bottom:4px}.main{padding:27px;min-width:0}.topbar{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;flex-wrap:wrap;margin-bottom:23px}.eyebrow{color:var(--cyan);font-size:10px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}.heading h1{margin:7px 0 6px;font-size:clamp(25px,3vw,34px);letter-spacing:-.04em}.subtitle{color:var(--muted);font-size:12px}.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:end}.field{display:grid;gap:5px;color:var(--muted);font-size:10px;font-weight:700}.field select{min-width:112px;background:#121d33;color:var(--text);border:1px solid var(--line);padding:10px;border-radius:10px;outline:none}.btn{border:1px solid var(--line);border-radius:10px;background:#17233c;color:var(--text);padding:10px 13px;cursor:pointer}.btn.primary{background:linear-gradient(135deg,#7c3aed,#2563eb);border-color:transparent}.btn:hover{filter:brightness(1.12)}.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:13px;margin-bottom:16px}.kpi{position:relative;overflow:hidden;background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:16px;min-width:0}.kpi:after{content:"";position:absolute;width:90px;height:90px;right:-32px;top:-36px;border-radius:50%;background:var(--accent);opacity:.12}.kpi-top{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:11px;font-weight:700}.kpi-icon{width:28px;height:28px;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 17%,transparent);color:var(--accent);border-radius:9px;font-size:14px}.kpi-value{font-size:clamp(20px,2vw,27px);font-weight:850;letter-spacing:-.045em;margin:14px 0 7px;white-space:nowrap}.kpi-foot{font-size:10px;color:var(--muted);line-height:1.5}.kpi-foot strong{color:var(--accent)}.grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.85fr);gap:15px;margin-bottom:15px}.grid.equal{grid-template-columns:repeat(2,minmax(0,1fr))}.card{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:18px;min-width:0;box-shadow:0 10px 30px #00000012}.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:4px}.card h2{font-size:14px;margin:0;letter-spacing:-.01em}.card-sub{font-size:10px;color:var(--muted);line-height:1.5;margin-bottom:15px}.tag{font-size:9px;color:#b9c7e1;background:#ffffff08;border:1px solid var(--line);border-radius:7px;padding:5px 7px;white-space:nowrap}.chart{width:100%;height:230px;display:block}.legend{display:flex;gap:13px;flex-wrap:wrap;color:var(--muted);font-size:10px;margin-top:7px}.legend span{display:flex;align-items:center;gap:6px}.swatch{width:8px;height:8px;border-radius:3px;display:inline-block}.donuts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}.donut-item{text-align:center;min-width:0}.donut{width:110px;height:110px;max-width:100%;margin:0 auto 10px;position:relative}.donut svg{width:100%;height:100%;transform:rotate(-90deg)}.donut circle{fill:none;stroke-width:10}.donut .base{stroke:#293751}.donut .value{stroke:var(--c);stroke-linecap:round;stroke-dasharray:var(--pct) 100}.donut-center{position:absolute;inset:0;display:grid;place-content:center;text-align:center}.donut-center b{font-size:19px;letter-spacing:-.04em}.donut-center small{font-size:9px;color:var(--muted)}.d-name{font-size:11px;font-weight:800}.d-sub{font-size:10px;color:var(--muted);margin-top:4px;line-height:1.5}.bars{display:grid;gap:15px}.barrow{display:grid;grid-template-columns:54px minmax(0,1fr) auto;gap:10px;align-items:center}.barname{font-size:11px;color:#d8e4f8;font-weight:700}.bartrack{height:9px;background:#26344e;border-radius:20px;overflow:hidden}.barfill{height:100%;width:var(--w);background:var(--c);border-radius:20px}.barval{font-size:11px;font-weight:800;text-align:right;white-space:nowrap}.bar-meta{font-size:9px;color:var(--muted);margin-top:5px}.monthly{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.month-card{border:1px solid var(--line);background:#0e1729;border-radius:13px;padding:12px;min-width:0}.month-top{display:flex;justify-content:space-between;gap:6px;align-items:center;font-size:10px;color:var(--muted)}.month-card.best{border-color:#22d3ee66;background:linear-gradient(180deg,#123247,#101b30)}.best-label{font-size:8px;color:var(--cyan);font-weight:800}.month-value{font-size:16px;font-weight:850;margin:10px 0 8px;letter-spacing:-.03em}.month-track{height:6px;border-radius:10px;background:#26344e;overflow:hidden}.month-fill{height:100%;background:linear-gradient(90deg,#2563eb,#22d3ee);width:var(--w);border-radius:10px}.month-note{font-size:9px;color:var(--muted);margin-top:7px}.table-wrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:11px;min-width:620px}th{text-align:left;color:#91a2c2;font-size:9px;text-transform:uppercase;letter-spacing:.08em;padding:11px 10px;border-bottom:1px solid var(--line)}td{padding:12px 10px;border-bottom:1px solid #25324a;color:#dce6f8}tbody tr:hover{background:#ffffff06}td.num,th.num{text-align:right}.status{display:inline-flex;align-items:center;gap:6px;border-radius:20px;padding:5px 8px;font-size:9px;font-weight:800}.status:before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor}.completed{color:#6ee7b7;background:#064e3b55}.pending{color:#fcd34d;background:#78350f55}.disputed{color:#fda4af;background:#88133755}.notice{border:1px dashed #425574;border-radius:12px;padding:18px;color:var(--muted);font-size:11px;line-height:1.7;background:#0c1526}.notice strong{display:block;color:#dce7fa;margin-bottom:5px}.quality{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px}.quality div{padding:12px;background:#0d1729;border:1px solid var(--line);border-radius:11px}.quality b{display:block;font-size:18px;margin-bottom:4px}.quality span{font-size:9px;color:var(--muted)}.footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#7789a9;font-size:10px;padding:12px 2px 0}.empty{padding:25px;text-align:center;color:var(--muted);font-size:11px}.hidden{display:none!important}
+@media(max-width:1180px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.layout{grid-template-columns:205px minmax(0,1fr)}.main{padding:20px}.grid{grid-template-columns:1fr}.grid.equal{grid-template-columns:1fr}}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.sidebar{padding:12px;gap:12px}.brand{padding:0 5px 10px}.nav-label,.side-foot{display:none}.nav{display:flex;overflow-x:auto}.nav button{white-space:nowrap;padding:9px 11px}.main{padding:14px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.kpi{padding:12px}.kpi-value{font-size:21px}.actions{width:100%}.field{flex:1}.field select{width:100%;min-width:0}.monthly{gap:6px}.month-card{padding:9px}.donuts{gap:7px}.donut{width:88px;height:88px}.card{padding:14px}}
+@media(max-width:420px){.kpis{grid-template-columns:1fr 1fr}.donuts{grid-template-columns:repeat(2,minmax(0,1fr))}.monthly{grid-template-columns:1fr}.month-card{padding:12px}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+  <div class="brand"><div class="brandmark">S</div><div><strong>Sales Intelligence</strong><small>BUSINESS ANALYTICS</small></div></div>
+  <div class="nav-label">WORKSPACE</div>
+  <nav class="nav" aria-label="Dashboard navigation">
+    <button class="active" data-section="overview"><span class="ico">◈</span>Overview</button>
+    <button data-section="orders"><span class="ico">▤</span>Orders</button>
+    <button data-section="customers"><span class="ico">♙</span>Customers</button>
+    <button data-section="products"><span class="ico">◇</span>Products</button>
+    <button data-section="regions"><span class="ico">⌖</span>Regions</button>
+    <button data-section="reps"><span class="ico">♧</span>Sales Representatives</button>
+    <button data-section="reports"><span class="ico">▥</span>Reports</button>
+    <button data-section="settings"><span class="ico">⚙</span>Settings</button>
+  </nav>
+  <div class="side-foot"><b>Report integrity</b>Summary-level source data loaded.<br>Missing values are not treated as zero.<br><span style="color:#8b9abb">Currency: INR (₹)</span></div>
+</aside>
+<main class="main">
+<header class="topbar">
+ <div class="heading"><div class="eyebrow">Commerce analytics · Sep–Nov 2026</div><h1>Sales Performance</h1><div class="subtitle">Order activity, recorded sales and product contribution · Revenue here means recorded order value, not profit.</div></div>
+ <div class="actions">
+  <label class="field">Region<select id="region"><option value="All">All regions</option><option>North</option><option>South</option><option>East</option><option>West</option></select></label>
+  <label class="field">Month<select id="month"><option value="All">All months</option><option value="2026-09">Sep 2026</option><option value="2026-10">Oct 2026</option><option value="2026-11">Nov 2026</option></select></label>
+  <label class="field">Status<select id="status"><option value="All">All statuses</option><option value="completed">Completed</option><option value="pending">Pending</option><option value="disputed">Disputed</option></select></label>
+  <button class="btn" id="reset">Reset filters</button><button class="btn primary" id="export">Export report</button>
+ </div>
+</header>
+<section class="kpis" id="kpis" aria-label="Key performance indicators"></section>
+<section class="grid">
+ <article class="card"><div class="card-head"><h2>Sales performance trend</h2><span class="tag">Monthly summary</span></div><div class="card-sub">Recorded sales by month. Daily order-level trend is unavailable in the summary source.</div><div id="trend"></div><div class="legend"><span><i class="swatch" style="background:#38bdf8"></i>Recorded sales</span><span><i class="swatch" style="background:#34d399"></i>Order count unavailable by month</span></div></article>
+ <article class="card"><div class="card-head"><h2>Order status summary</h2><span class="tag">90 total orders</span></div><div class="card-sub">Counts and share of all orders. Filters update the visible status mix.</div><div class="donuts" id="statusDonuts"></div><div class="quality"><div><b>3</b><span>Missing amounts</span></div><div><b>8</b><span>Disputed orders</span></div><div><b>19</b><span>Pending orders</span></div></div></article>
+</section>
+<section class="grid equal">
+ <article class="card" id="regionCard"><div class="card-head"><h2>Regional performance</h2><span class="tag">Ranked by sales</span></div><div class="card-sub">Recorded sales by region. Summary figures are shown; they cannot be re-sliced by month or status.</div><div class="bars" id="regions"></div></article>
+ <article class="card" id="monthCard"><div class="card-head"><h2>Monthly performance</h2><span class="tag">Best month highlighted</span></div><div class="card-sub">Recorded sales total by month. Month-over-month change is calculated from these reported totals.</div><div class="monthly" id="months"></div></article>
+</section>
+<section class="grid equal">
+ <article class="card" id="productCard"><div class="card-head"><h2>Product contribution</h2><span class="tag">Share of recorded sales</span></div><div class="card-sub">Ranked by recorded sales. Tier A ≥15%; Tier B ≥5% and &lt;15%; Tier C &lt;5% of total recorded sales.</div><div class="bars" id="products"></div><div class="legend"><span><i class="swatch" style="background:#38bdf8"></i>Tier A ≥15%</span><span><i class="swatch" style="background:#34d399"></i>Tier B 5–&lt;15%</span><span><i class="swatch" style="background:#64748b"></i>Tier C &lt;5%</span></div></article>
+ <article class="card" id="repCard"><div class="card-head"><h2>Representative snapshot</h2><span class="tag">Supplied summary</span></div><div class="card-sub">Recorded order counts and sales by representative. Targets were not supplied.</div><div class="table-wrap"><table><thead><tr><th>Representative</th><th class="num">Orders</th><th class="num">Recorded sales</th></tr></thead><tbody id="reps"></tbody></table></div><div class="notice" style="margin-top:12px">Target attainment and performance against quota cannot be calculated because no sales targets are present in the source.</div></article>
+</section>
+<section class="grid">
+ <article class="card" id="ordersCard"><div class="card-head"><h2>Recent orders</h2><span class="tag">Source limitation</span></div><div class="card-sub">Order-level rows are required for an accurate sortable, filterable recent-orders table.</div><div class="notice"><strong>Individual order records are not included in this file.</strong>The uploaded HTML contains aggregate counts and totals, but not the 90 order IDs, order dates, customer names, products, amounts and statuses needed to render this table without fabricating records. Upload the original CSV/XLSX/SQL export to enable this view.</div></article>
+ <article class="card" id="customerCard"><div class="card-head"><h2>Customer segments</h2><span class="tag">Illustrative source bands</span></div><div class="card-sub">Spend bands as supplied in the SQL analysis summary; these are not independently recomputed from customer-level records.</div><div class="donuts" id="customers"></div><div class="notice" style="margin-top:12px">Customer-level filtering and customer counts cannot be validated from the aggregate report alone.</div></article>
+</section>
+<footer class="footer"><span>Source: supplied SQL Order Analysis report · 90 orders · 11 columns reported</span><span>Data quality: 3 missing amounts · Missing ≠ ₹0</span><span>Sales Intelligence · INR</span></footer>
+</main></div>
+<script>
+const monthly=[
+ {m:'Sep 2026',month:'2026-09',East:18200,North:53500,South:30200,West:38700,total:140600},
+ {m:'Oct 2026',month:'2026-10',East:29500,North:44100,South:31200,West:38400,total:143200},
+ {m:'Nov 2026',month:'2026-11',East:68300,North:36000,South:54100,West:42100,total:200500}
+];
+const statuses=[
+ {name:'Completed',key:'completed',count:63,sales:346200,color:'#34d399'},
+ {name:'Pending',key:'pending',count:19,sales:64900,color:'#fb923c'},
+ {name:'Disputed',key:'disputed',count:8,sales:73200,color:'#fb7185'}
+];
+const products=[
+ {name:'Air Fryer',sales:145600,pct:30.06,tier:'A'},{name:'Smart Watch',sales:94500,pct:19.51,tier:'A'},
+ {name:'Wireless Earbuds',sales:83200,pct:17.18,tier:'A'},{name:'Running Shoes',sales:61200,pct:12.64,tier:'B'},
+ {name:'Denim Jacket',sales:30000,pct:6.19,tier:'B'},{name:'Cotton Kurta',sales:21000,pct:4.34,tier:'C'},
+ {name:'Bluetooth Speaker',sales:19600,pct:4.05,tier:'C'},{name:'Bedsheet Set',sales:17100,pct:3.53,tier:'C'},
+ {name:'Table Lamp',sales:12100,pct:2.50,tier:'C'}
+];
+const regions=[
+ {name:'North',orders:22,sales:133600,pending:2,disputed:1,color:'#38bdf8'},
+ {name:'West',orders:23,sales:119200,pending:4,disputed:4,color:'#a78bfa'},
+ {name:'East',orders:20,sales:116000,pending:6,disputed:2,color:'#34d399'},
+ {name:'South',orders:25,sales:115500,pending:7,disputed:1,color:'#fb923c'}
+];
+const segments=[
+ {name:'High',customers:2,spend:87200,pct:10,color:'#38bdf8',note:'≥ ₹40,000'},
+ {name:'Medium',customers:7,spend:245100,pct:30,color:'#34d399',note:'₹25,000–₹39,999'},
+ {name:'Low',customers:11,spend:152000,pct:55,color:'#fb923c',note:'< ₹25,000'}
+];
+const reps=[['Arjun Mehta',22,133600],['Neha Kulkarni',23,119200],['Sanjay Roy',20,116000],['Kavya Nair',25,115500]];
+const $=id=>document.getElementById(id);
+const money=n=>'₹'+Math.round(n).toLocaleString('en-IN');
+function donut(name,value,sub,pct,color,unit='orders'){
+ return `<div class="donut-item"><div class="donut" style="--pct:${Math.max(0,Math.min(100,pct))};--c:${color}"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="base" cx="50" cy="50" r="39" pathLength="100"></circle><circle class="value" cx="50" cy="50" r="39" pathLength="100"></circle></svg><div class="donut-center"><b>${value}</b><small>${unit}</small></div></div><div class="d-name">${name}</div><div class="d-sub">${sub}</div></div>`;
+}
+function bar(name,sales,max,color,meta=''){
+ return `<div class="barrow"><div class="barname">${name}</div><div><div class="bartrack"><div class="barfill" style="--w:${sales/max*100}%;--c:${color}"></div></div><div class="bar-meta">${meta}</div></div><div class="barval">${money(sales)}</div></div>`;
+}
+function lineChart(data){
+ const w=600,h=230,p={l:48,r:15,t:16,b:34},cw=w-p.l-p.r,ch=h-p.t-p.b,max=Math.ceil(Math.max(...data.map(d=>d.total))/50000)*50000;
+ const pts=data.map((d,i)=>({x:p.l+(data.length===1?cw/2:i*cw/(data.length-1)),y:p.t+ch-(d.total/max)*ch,d}));
+ let s=`<svg class="chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="Monthly recorded sales line chart">`;
+ for(let i=0;i<=4;i++){let y=p.t+ch-i*ch/4,v=max*i/4;s+=`<line x1="${p.l}" y1="${y}" x2="${w-p.r}" y2="${y}" stroke="#263653" stroke-dasharray="3 5"/><text x="${p.l-8}" y="${y+4}" text-anchor="end" fill="#91a2c2" font-size="10">${Math.round(v/1000)}k</text>`}
+ s+=`<polyline points="${pts.map(a=>`${a.x},${a.y}`).join(' ')}" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>`;
+ pts.forEach(a=>{s+=`<circle cx="${a.x}" cy="${a.y}" r="5" fill="#111b30" stroke="#38bdf8" stroke-width="3"><title>${a.d.m}: ${money(a.d.total)}</title></circle><text x="${a.x}" y="${h-10}" text-anchor="middle" fill="#a7b7d3" font-size="11">${a.d.m.split(' ')[0]}</text>`});
+ s+='</svg>';return s;
+}
+function render(){
+ const reg=$('region').value,mo=$('month').value,st=$('status').value;
+ const chosenStatus=statuses.filter(x=>st==='All'||x.key===st);
+ const orderCount=chosenStatus.reduce((a,x)=>a+x.count,0),sales=chosenStatus.reduce((a,x)=>a+x.sales,0);
+ const monthRows=monthly.filter(x=>mo==='All'||x.month===mo);
+ const regionRows=regions.filter(x=>reg==='All'||x.name===reg);
+ // The report has monthly, regional and status summaries separately, not a shared order-level fact table.
+ // Keep global status KPIs tied to status filter and explicitly avoid pretending dimensions can be combined.
+ const statusNote=(reg!=='All'||mo!=='All')?'Summary-level cross-filter unavailable':'Based on status summary';
+ const kpiData=[
+  ['Recorded value',money(sales),'Recorded amount; missing values excluded',sales/484300*100,'#38bdf8','₹'],
+  ['Total orders',orderCount,st==='All'?'All reported orders':'Orders in selected status',orderCount/90*100,'#a78bfa','▤'],
+  ['Completed',st==='All'?'63':st==='completed'?'63':'0',st==='All'?'70% of all orders':'Status-filtered view',st==='All'?70:st==='completed'?100:0,'#34d399','✓'],
+  ['Pending',st==='All'?'19':st==='pending'?'19':'0','Includes orders with missing amounts',st==='All'?21:st==='pending'?100:0,'#fb923c','◷'],
+  ['Avg. order value',st==='All'?money(484300/90):orderCount?money(sales/orderCount):'—',st==='All'?'Recorded value ÷ 90 orders':'Selected status recorded value ÷ order count',100,'#22d3ee','↗']
+ ];
+ $('kpis').innerHTML=kpiData.map(k=>`<article class="kpi" style="--accent:${k[4]}"><div class="kpi-top"><span>${k[0]}</span><span class="kpi-icon">${k[5]}</span></div><div class="kpi-value">${k[1]}</div><div class="kpi-foot"><strong>${k[3].toFixed(0)}%</strong> visual reference · ${k[2]}</div></article>`).join('');
+ $('statusDonuts').innerHTML=chosenStatus.map(x=>donut(x.name,x.count,`${money(x.sales)} recorded · ${(x.count/90*100).toFixed(1)}%`,x.count/90*100,x.color)).join('');
+ $('trend').innerHTML=lineChart(monthRows);
+ $('regions').innerHTML=regionRows.slice().sort((a,b)=>b.sales-a.sales).map(x=>bar(x.name,x.sales,Math.max(...regions.map(r=>r.sales)),x.color,`${x.orders} orders · status breakdown in source summary`)).join('');
+ const maxM=Math.max(...monthRows.map(x=>x.total));
+ $('months').innerHTML=monthRows.map(x=>{let idx=monthly.findIndex(m=>m.month===x.month),prev=monthly[idx-1],change=prev?(x.total-prev.total)/prev.total*100:null;return `<div class="month-card ${x.total===200500?'best':''}"><div class="month-top"><span>${x.m}</span>${x.total===200500?'<span class="best-label">BEST MONTH</span>':''}</div><div class="month-value">${money(x.total)}</div><div class="month-track"><div class="month-fill" style="--w:${x.total/maxM*100}%"></div></div><div class="month-note">${change===null?'Baseline month':`${change>=0?'+':''}${change.toFixed(1)}% vs previous month`}</div></div>`}).join('');
+ $('products').innerHTML=products.slice().sort((a,b)=>b.sales-a.sales).map(x=>bar(x.name,x.sales,products[0].sales,x.tier==='A'?'#38bdf8':x.tier==='B'?'#34d399':'#64748b',`Tier ${x.tier} · ${x.pct.toFixed(2)}% of recorded sales`)).join('');
+ $('reps').innerHTML=reps.map(x=>`<tr><td>${x[0]}</td><td class="num">${x[1]}</td><td class="num">${money(x[2])}</td></tr>`).join('');
+ $('customers').innerHTML=segments.map(x=>donut(x.name,x.customers,`${money(x.spend)} spend · ${x.note}`,x.pct,x.color,'customers')).join('');
+ // These independent aggregate summaries cannot validly cross-filter one another.
+ const limited=(reg!=='All'||mo!=='All');
+ document.querySelectorAll('.card-sub').forEach(el=>{});
+ $('regionCard').querySelector('.tag').textContent=reg==='All'?'Ranked by sales':`Region: ${reg}`;
+ $('monthCard').querySelector('.tag').textContent=mo==='All'?'Best month highlighted':`Month: ${monthRows[0]?.m||'—'}`;
+ $('productCard').querySelector('.tag').textContent=st==='All'?'Share of recorded sales':'Product data not status-filtered';
+}
+['region','month','status'].forEach(id=>$(id).addEventListener('change',render));
+$('reset').addEventListener('click',()=>{['region','month','status'].forEach(id=>$(id).value='All');render()});
+$('export').addEventListener('click',()=>{
+ const report=[
+  ['Metric','Value','Definition'],
+  ['Total orders',90,'Reported total order count'],
+  ['Recorded order value',484300,'Sum of non-missing order amounts; INR'],
+  ['Completed orders',63,'Reported status count'],
+  ['Pending orders',19,'Reported status count'],
+  ['Disputed orders',8,'Reported status count'],
+  ...monthly.map(x=>[x.m,x.total,'Recorded sales; INR']),
+  ...regions.map(x=>[`Region: ${x.name}`,x.sales,`${x.orders} orders; recorded sales INR`]),
+  ...products.map(x=>[`Product: ${x.name}`,x.sales,`Tier ${x.tier}; ${x.pct}% of total recorded sales`])
+ ];
+ const csv=report.map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');
+ const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+ a.href=url;a.download='sales-dashboard-summary.csv';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+});
+document.querySelectorAll('.nav button').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+ const map={overview:null,orders:'ordersCard',customers:'customerCard',products:'productCard',regions:'regionCard',reps:'repCard',reports:'monthCard',settings:null};
+ const id=map[btn.dataset.section];if(id)$(id).scrollIntoView({behavior:'smooth',block:'center'});else if(btn.dataset.section==='overview')window.scrollTo({top:0,behavior:'smooth'});else if(btn.dataset.section==='settings')alert('Settings: filters and report export are available in this standalone dashboard.');
+}));
+render();
+</script>
+</body>
+</html>
